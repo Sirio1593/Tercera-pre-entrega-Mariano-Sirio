@@ -2,7 +2,6 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 from django.template import loader
-
 from django.shortcuts import render
 
 def probandoTemplate(request):
@@ -17,20 +16,16 @@ def probandoTemplate(request):
     documento = plantilla.render(miContexto)
 
     return HttpResponse(documento)
- 
-    '''
+
+def PruebaLoader(self):
     nom = "Mariano"
     ap = "Sirio"
-    listaNotas = [1, 2, 3, 4]
-
-    dic = {"nombre": nom, "apellido": ap, "hoy": datetime.datetime.now(), "notas": listaNotas}
-
-    return render(request, 'index.html', dic)
+    
+    dict = {"Nombre":nom, "Apellido": ap}
+    plantilla = loader.get_template('index.html')
+    documento = plantilla.render(dict)
+    return HttpResponse(documento)
 '''
-
-
-'''
-
 # Create your views here.
 def operarios(self):
     
@@ -38,4 +33,6 @@ def operarios(self):
     operarios.save()
     documentoDeTexto = f"-->Operarios {operarios.nombre} {operarios.apellido} {operarios.isla_de_produccion}"
     
-    return HttpResponse(documentoDeTexto)'''
+    return HttpResponse(documentoDeTexto)
+'''
+

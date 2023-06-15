@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import probandoTemplate
+from .views import PruebaLoader
 from Operarios import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('probandoTemplate/', probandoTemplate),
+    path('PruebaLoader/', PruebaLoader),
+    path('Operarios/', include('Operarios.urls')),
 ]       
