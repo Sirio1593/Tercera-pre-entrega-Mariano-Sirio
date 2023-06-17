@@ -1,0 +1,26 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+
+        <title>Formmulario_Usuario</title>
+
+        {% block main %}
+
+        <div class="container px-4">
+            <div class="row gx-4 justify-content-center">
+                <div class="col-lg-8">
+                    <h2>Formulario - Editar Perfil </h2>
+                    <h1>De {{usuario}}</h1>
+                </div>
+            </div>
+        </div>
+
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{ miFormulario.as_table }}
+
+    </table>
+
+<input type="sumit", value="Enviar">
+</form>
+
+        {% endblock main %}
