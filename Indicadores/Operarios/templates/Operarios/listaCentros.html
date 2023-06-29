@@ -1,0 +1,61 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+{% block h1 %}Centros de Producción{% endblock h1 %}
+{% block p %}Resultado de busqueda{% endblock p %}
+{% block a %}Lista de Centros de Producción{% endblock a %}
+
+{% block styles %}
+<style>
+    /* Estilos personalizados */
+    .my-table {
+        background-color: white; /* Cambia el fondo de la tabla a blanco */
+    }
+
+    .my-button {
+        color: black !important; /* Cambia el color del texto de los botones a negro */
+    }
+</style>
+
+
+{% block main %}
+
+    <div class="container px-4 text-center">
+        <table class="my-table">
+            <tr>
+                <th>Referencia</th>
+                <th>Nombre</th>
+                <th>Isla de Producción</th>
+                <th>Capacidad diaria</th>
+                <th>Tiempo Eficiencia</th>
+                <th>Eficiencia%</th>
+                <th>Cantidad Operarios</th>
+            </tr>
+            {% for centro in centros %}
+            <tr>
+                <td>{{ centros.referencia_interna }}</td>
+                <td>{{ centros.nombre }}</td>
+                <td>{{ centros.isla_de_produccion }}</td>
+                <td>{{ centros.capacidad }}</td>
+                <td>{{ centros.tiempo_eficiencia }}</td>
+                <td>{{ centros.eficiencia }}</td>
+                <td>{{ centros.cantidad_operarios }}</td>
+                <td>
+                    
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Acción
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="accionesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'detalle_centro' centro.id %}" class="button my-button">Ver detalle</a></li>
+                        <li><a class="dropdown-item" href="{% url 'editar_centro' centro.id %}" class="button my-button">Editar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'eliminar_centro' centro.id %}" class="button my-button">Eliminar</a></li>
+                    </ul>
+              </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+{% endblock main %}
+
+{% endblock styles %}

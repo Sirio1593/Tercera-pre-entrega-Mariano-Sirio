@@ -1,0 +1,57 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+{% block h1 %}Productos{% endblock h1 %}
+{% block p %}Restulado de busqueda productos{% endblock p %}
+{% block a %}Restulado de busqueda productos{% endblock a %}
+
+    /* Estilos personalizados */
+    .my-table {
+        background-color: white; /* Cambia el fondo de la tabla a blanco */
+        border-collapse: collapse; /* Combina los bordes de las celdas */
+        width: 100%; /* Ajusta el ancho de la tabla al 100% */
+    }
+
+    .my-table th,
+    .my-table td {
+        padding: 8px; /* Añade espaciado interno a las celdas */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .my-table th {
+        background-color: #f2f2f2; /* Cambia el fondo de las celdas del encabezado */
+    }
+
+
+{% block main %}
+    <div class="container px-4 text-center">
+        <table class="my-table">
+            <tr>
+                <th>Referencia</th>
+                <th>Nombre</th>
+                <th>Modelo</th>
+                <th>Packaging</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+              </tr>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.referencia_productos }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.modelo }}</td>
+                <td>{{ producto.packaging }}</td>
+                <td>{{ producto.categoria }}</td>   
+                <td>   
+                <button class="btn btn-primary dropdown-toggle" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Acción
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="accionesDropdown">
+                    <li><a class="dropdown-item" href="{% url 'detalle_producto' producto.id %}" class="button my-button">Ver detalle</a></li>
+                    <li><a class="dropdown-item" href="{% url 'editar_producto' producto.id %}" class="button my-button">Editar</a></li>
+                    <li><a class="dropdown-item" href="{% url 'eliminar_producto' producto.id %}" class="button my-button">Eliminar</a></li>
+                </ul>
+            </td>
+          </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock main %}

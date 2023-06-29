@@ -1,0 +1,42 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+{% block h1 %}Detalle de Productos{% endblock h1 %}
+{% block p %}Detalle de Productos{% endblock p %}
+{% block a %}Detalle de Productos{% endblock a %}</a>
+{% block main %}
+
+{% block section %}
+<div class="container px-4 text-center">
+  <table class="my-table">
+</div>
+<div class="mb-3">
+  <tr>
+    <th>Referencia</th>
+    <th>Nombre</th>
+    <th>Modelo</th>
+    <th>Packaging</th>
+    <th>Categoría</th>
+    <th>Acciones</th>
+  </tr>
+  <tr>
+    <td>{{ producto.referencia_productos }}</td>
+    <td>{{ producto.nombre }}</td>
+    <td>{{ producto.modelo }}</td>
+    <td>{{ producto.packaging }}</td>
+    <td>{{ producto.categoria }}</td>
+    <td>        
+      <button class="btn btn-primary dropdown-toggle" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Acción
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="accionesDropdown">
+          <li><a class="dropdown-item" href="{% url 'editar_producto' producto.id %}" class="button my-button">Editar</a></li>
+          <li><a class="dropdown-item" href="{% url 'eliminar_producto' producto.id %}" class="button my-button">Eliminar</a></li>
+      </ul>
+</td>
+  </tr>
+</table>
+
+
+{% endblock section %}
+
+{% endblock main %}

@@ -10837,3 +10837,37 @@ section {
   padding-top: 9rem;
   padding-bottom: 9rem;
 }
+
+.my-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.my-table th,
+.my-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.my-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.my-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.my-table td:first-child,
+.my-table th:first-child {
+  padding-left: 20px;
+}
+
+.my-table td:last-child,
+.my-table th:last-child {
+  padding-right: 20px;
+}

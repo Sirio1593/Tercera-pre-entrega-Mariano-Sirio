@@ -14,30 +14,39 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
-from .views import inicio
-from .views import islas
-from .views import operario
-from .views import centros
-from .views import productos
-from .views import categorias
-from .views import ordenes
-from .views import estados
-from .views import reporte
-from .views import sesiones
+from Operarios.views import *
 
 
 urlpatterns = [
-    path('', inicio, name='inicio'),
-    path('Operarios', operario, name='operario'),
-    path('Islas', islas, name='isla'),
-    path('Centros de Producción', centros, name='centro'),
-    path('Productos', productos, name='producto'),
-    path('Categorias', categorias, name='categoria'),
-    path('Ordenes', ordenes, name='orden'),
-    path('Estados', estados, name='estado'),
-    path('Reporte', reporte, name='reporte'),
-    path('Sesion', sesiones, name='sesion'),
+    
+    path('', index, name='Index'),
+    path('Index', index, name='Index'),
+
+    path('buscarOperarios', buscarOperarios, name='buscarOperarios'),
+    path('formOperarios', formOperarios, name="formOperarios"),
+    path('resultadoOperarios', resultadoOperarios, name="resultadoOperarios"),
+    path('listaOperarios', listaOperarios, name="listaOperarios"),
+    path('operario/<int:operario_id>/', detalle_operario, name='detalle_operario'),
+    path('operario/<int:operario_id>/editar/', editar_operario, name='editar_operario'),
+    path('operario/<int:operario_id>/eliminar/', eliminar_operario, name='eliminar_operario'),
+
+    path('formProductos', formProductos, name='formProductos'),
+    path('buscarProductos', buscarProductos, name='buscarProductos'),
+    path('resultadoProducto', resultadoProducto, name="resultadoProducto"),
+    path('listaProductos', listaProductos, name="listaProductos"),
+    path('producto/<int:producto_id>/', detalle_producto, name='detalle_producto'),
+    path('producto/<int:producto_id>/editar/', editar_producto, name='editar_producto'),
+    path('producto/<int:producto_id>/eliminar/', eliminar_producto, name='eliminar_producto'),
+    
+
+    path('formCategorias', formCategorias, name='formCategorias'),
+    path('buscarCategorias', buscarCategorias, name='buscarCategorias'),
+    path('resultadoCategorias', resultadoCategorias, name="resultadoCategorias"),
+    path('listaCategorias', listaCategorias, name="listaCategorias"),
+    path('categoria/<int:categoria_id>/', detalle_categoria, name='detalle_categoria'),
+    path('categoria/<int:categoria_id>/editar/', editar_categoria, name='editar_categoria'),
+    path('categoria/<int:categoria_id>/eliminar/', eliminar_categoria, name='eliminar_categoria'),
+    path('categoria/<int:categoria_id>/editar/', editar_categoria, name='editar_categoria'),
     
 ]

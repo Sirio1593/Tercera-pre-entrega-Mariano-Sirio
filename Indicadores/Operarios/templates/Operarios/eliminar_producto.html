@@ -1,0 +1,20 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+{% block h1 %}Producto{% endblock h1 %}
+{% block p %}Productos{% endblock p %}
+{% block a %}Eliminar Productos{% endblock a %}</a>
+{% block main %}
+
+{% block section %}
+
+<h2>Eliminar Productos</h2>
+<p>¿Estás seguro de que deseas eliminar el producto {{ producto.referencia_productos }} {{ producto.nombre }}?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Eliminar">
+</form>
+
+{% endblock section %}
+
+{% endblock main %}

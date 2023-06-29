@@ -1,0 +1,34 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+
+<title>Formulario de Categorías</title>
+
+{% block main %}
+<div class="container px-4 text-center">
+    <div class="card" style="max-width: 400px; margin: 0 auto;">
+        <div class="card-body">
+            <h2 class="card-title">Formulario de Categorías</h2>
+
+            {% if miFormCateg.errors %}
+            <p style="color: red;"> Están mal los datos, revisar</p>
+            {% endif %}
+
+            <form action="" method="POST" class="formulario-Categorías">{% csrf_token %}
+
+                <table>
+                    {{ miFormCateg.as_table }}
+                </table>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+<style>
+  .formulario-Categorías {
+    color: black;
+  }
+</style>
+

@@ -1,0 +1,33 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+
+<title>Formulario de Operarios</title>
+
+{% block main %}
+<div class="container px-4 text-center">
+    <div class="card" style="max-width: 400px; margin: 0 auto;">
+        <div class="card-body">
+            <h2 class="card-title">Formulario de Operarios</h2>
+
+            {% if miForm.errors %}
+            <p style="color: red;"> Están mal los datos, revisar</p>
+            {% endif %}
+
+            <form action="" method="POST" class="formulario-operarios">{% csrf_token %}
+
+                <table>
+                    {{ miForm.as_table }}
+                </table>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock main %}
+
+<style>
+  .formulario-operarios {
+    color: black;
+  }
+</style>

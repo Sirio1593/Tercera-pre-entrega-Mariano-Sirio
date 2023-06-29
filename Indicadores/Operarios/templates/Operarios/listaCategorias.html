@@ -1,0 +1,53 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+{% block h1 %}Categorias{% endblock h1 %}
+{% block p %}Resultado de busqueda{% endblock p %}
+{% block a %}Lista de Categorias{% endblock a %}
+
+{% block styles %}
+<style>
+    /* Estilos personalizados */
+    .my-table {
+        background-color: white; /* Cambia el fondo de la tabla a blanco */
+    }
+
+    .my-button {
+        color: black !important; /* Cambia el color del texto de los botones a negro */
+    }
+</style>
+
+
+{% block main %}
+
+    <div class="container px-4 text-center">
+        <table class="my-table">
+            <tr>
+                <th>Referencia</th>
+                <th>Nombre</th>
+            </tr>
+            {% for categoria in categorias %}
+            <tr>
+                <td>{{ categoria.referencia_categorias }}</td>
+                <td>{{ categoria.nombre }}</td>
+                <td>
+                    
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="accionesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Acción
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="accionesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'detalle_categoria' categoria.id %}" class="button my-button">Ver detalle</a></li>
+                        <li><a class="dropdown-item" href="{% url 'editar_categoria' categoria.id %}" class="button my-button">Editar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'eliminar_categoria' categoria.id %}" class="button my-button">Eliminar</a></li>
+                    </ul>
+              </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+{% endblock main %}
+
+{% endblock styles %}
+
+

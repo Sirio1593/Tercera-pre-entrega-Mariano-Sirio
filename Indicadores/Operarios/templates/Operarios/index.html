@@ -2,22 +2,17 @@
 {% load static %}
 
 {% block titulo %}
-
 Inicio
-
 {% endblock titulo %}
-
+<header class="bg-primary bg-gradient text-white">
+    <div class="container px-4 text-center">
+        <h1 class="fw-bolder">Panel de Producción</h1>
+        <p class="lead">{% block p %}Primer Web para Producción{% endblock p %}</p>
+        <a class="btn btn-lg btn-light" href="#about">{% block a %}Ver más información{% endblock a %}</a>
+    </div>
+</header>
 {% block main %}
-        <!-- About section-->
 
-        <header class="bg-primary bg-gradient text-white">
-            <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Panel de Producción</h1>
-                <p class="lead">Tercera Entrega Mariano Sirio - Primer Web para Producción</p>
-                <a class="btn btn-lg btn-light" href="#about">Ver más información</a>
-            </div>
-        </header>
-        <section id="about">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
@@ -31,9 +26,7 @@ Inicio
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Services section-->
-        <section class="bg-light" id="services">
+
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
@@ -42,8 +35,7 @@ Inicio
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Contact section-->
+
         <section id="contact">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">

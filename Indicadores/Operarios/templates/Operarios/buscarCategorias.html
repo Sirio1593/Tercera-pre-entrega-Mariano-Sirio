@@ -1,0 +1,46 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Buscar Categorias</title>
+{% endblock %}
+
+{% block main %}
+<div class="container px-4 text-center">
+    <div class="card" style="max-width: 400px; margin: 0 auto;">
+        <div class="card-body">
+            <h2 class="card-title">Buscar Categorías</h2>
+
+            {% if buscar_nombre.errors %}
+            <form action="/Operarios/Index" method="POST" class="formulario-categorias">
+                {% csrf_token %}
+                <table>
+                    {{ buscar_nombre.as_table }}
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Buscar"></td>
+                    </tr>
+                </table>
+            </form>
+            <p style="color: red;">No hay categorías con ese nombre</p>
+            {% else %}
+            <form action="" method="POST" class="formulario-categorias">
+                {% csrf_token %}
+                <table>
+                    {{ buscar_nombre.as_table }}
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Buscar"></td>
+                    </tr>
+                </table>
+            </form>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+  .formulario-categorias {
+    color: black;
+  }
+</style>

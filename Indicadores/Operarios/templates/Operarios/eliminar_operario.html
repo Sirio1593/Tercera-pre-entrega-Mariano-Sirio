@@ -1,0 +1,20 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+{% block h1 %}Operarios{% endblock h1 %}
+{% block p %}Depósito Ituzaingó{% endblock p %}
+{% block a %}Cargar Operario{% endblock a %}</a>
+{% block main %}
+
+{% block section %}
+
+<h2>Eliminar Operario</h2>
+<p>¿Estás seguro de que deseas eliminar al operario {{ operario.nombre }} {{ operario.apellido }}?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Eliminar">
+</form>
+
+{% endblock section %}
+
+{% endblock main %}

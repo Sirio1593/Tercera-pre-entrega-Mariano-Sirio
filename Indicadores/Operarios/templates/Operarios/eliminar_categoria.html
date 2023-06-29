@@ -1,0 +1,20 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+{% block h1 %}Categorías{% endblock h1 %}
+{% block p %}Categorías{% endblock p %}
+{% block a %}Eliminar Categorías{% endblock a %}</a>
+{% block main %}
+
+{% block section %}
+
+<h2>Eliminar Categorías</h2>
+<p>¿Estás seguro de que deseas eliminar laCategorías {{ categoria.referencia_categorias }} {{ categoria.nombre }}?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Eliminar">
+</form>
+
+{% endblock section %}
+
+{% endblock main %}

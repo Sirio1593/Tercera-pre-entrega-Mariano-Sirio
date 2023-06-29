@@ -1,0 +1,35 @@
+{% extends "Operarios/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Editar Operarios</title>
+{% endblock %}
+
+{% block main %}
+<div class="container px-4 text-center">
+    <div class="card" style="max-width: 400px; margin: 0 auto;">
+        <div class="card-body">
+            <h2 class="card-title">Editar Operarios</h2>
+
+            
+            <form method="POST" class="formulario-operarios">
+                {% csrf_token %}
+                
+                <table>
+                    {{ form.as_p }}
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Guardar cambios"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+  .formulario-operarios {
+    color: black;
+  }
+</style>
