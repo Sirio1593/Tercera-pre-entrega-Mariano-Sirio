@@ -19,6 +19,7 @@ from .models import CentrosDeProduccion
 def index(request):
     return render(request, "Operarios/index.html")
 
+
 #Sección Operarios------------------------------------------------------------------------------------
 
 def formOperarios(request):
@@ -199,6 +200,11 @@ def formCategorias(request):
     else:
         miFormCateg = categoriasForm()
     return render(request, "Operarios/formCategorias.html", {"miFormCateg": miFormCateg})
+
+
+def inicio(request):
+    categorias = CategoriasDeProductos.objects.all()  # Obtener todos los productos de la base de datos
+    return render(request, "Operarios/listaCategorias.html", {"categorias": categorias})
 
 
 def listaCategorias(request):

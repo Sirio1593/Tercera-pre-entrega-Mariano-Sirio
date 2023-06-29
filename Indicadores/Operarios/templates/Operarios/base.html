@@ -21,15 +21,19 @@
         <link href="{% static 'Operarios/css/styles.css' %}" rel="stylesheet" />
     </head>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav-with-background" id="mainNav">
+            
             <div class="container px-4">
                 <a class="navbar-brand" href="{% url 'Index' %}">Producción Uoopaa</a>
+                
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <!-- Dentro del bloque main -->
-        <a class="dropdown-item" href="{% url 'Index' %}">Inicio</a>
-
+        <a class="dropdown-item" href="{% url 'Index' %}">Inicio</a></ul>
+    <div>
     <button class="btn btn-primary dropdown-toggle" type="button" id="operariosDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         Operarios
     </button>
@@ -57,24 +61,27 @@
         <li><a class="dropdown-item" href="{% url 'buscarCategorias' %}">Buscar Categoría</a></li>
         <li><a class="dropdown-item" href="{% url 'listaCategorias' %}">Lista de Categorías</a></li>
     </ul>
-
-
-
-
                     </ul>
+                </div>
                 </div>
             </div>
         </nav>
         <header class="bg-primary bg-gradient text-black">
             <div class="container px-4 text-center">
-
+                
                 {% block main %}
 
 
                 {% endblock main %}
+                <div class="container px-4 text-center">
+                    <p>--
+                    </p>
+                    <p>--
+                    </p>
+                </div>
+                <img class="img-fluid " src='{% static "Operarios/asset/logob.png" %}' alt="..." />
             </div>
         </header>
-
         <footer class="py-5 bg-dark">
             <div class="container px-4"><p class="m-0 text-center text-black">Uoopaa SRL - 2023</p></div>
         </footer>
