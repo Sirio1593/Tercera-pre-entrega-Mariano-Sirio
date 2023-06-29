@@ -234,7 +234,7 @@ def editar_categoria(request, categoria_id):
             categoria.referencia_categorias = formCateg.cleaned_data['referencia_categorias']
             categoria.nombre = formCateg.cleaned_data['nombre']
             categoria.save()
-            return render(request, 'Operarios/detalle_categoria.html', {'categoria': categoria_id})
+            return redirect('detalle_categoria', categoria_id=categoria.id)
 
         
     else:
@@ -245,6 +245,24 @@ def editar_categoria(request, categoria_id):
         })
 
     return render(request, "Operarios/editar_categoria.html", {"formCateg": formCateg})
+
+def editar_operario(request, operario_id):
+    operario = Operarios.objects.get(id=operario_id)  # Obtener el operario por su ID
+
+    if request.method == 'POST':
+        form = operariosForm(request.POST)
+        if form.is_valid():
+            # Procesar los datos enviados por el formulario y guardar los cambios en el operario
+            operario.nombre = form.cleaned_data['nombre']
+            operario.apellido = form.cleaned_data['apellido']
+            operario.isla_de_produccion = form.cleaned_data['isla_de_produccion']
+            operario.save()
+            return redirect('detalle_operario', operario_id=operario.id)
+
+
+
+
+
 
 def eliminar_categoria(request, categoria_id):
     categoria = CategoriasDeProductos.objects.get(id=categoria_id)  # Obtener el operario por su ID
